@@ -1,0 +1,1498 @@
+/* vexall Performance Appraisal application */
+
+html {
+    background-image: url('../images/bg.jpg');
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+html body {
+    line-height: 16px;
+    /* background-color: #e5f4fe; */
+    color: #202020;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+a {
+    cursor: pointer;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+textarea:focus,
+button.btn:focus,
+button.btn:active:focus,
+input:focus,
+input:active:focus {
+    outline-width: 2px;
+}
+
+
+/* button classes starts here */
+
+.pa-cta-cnt {
+    margin-top: 10px;
+}
+
+.pa-cta-cnt button {
+    color: #fff;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 6px 20px;
+}
+
+.pa-cta-cnt button:hover,
+.pa-cta-cnt button:focus {
+    color: #fff;
+}
+
+.pa-cta-cnt button.primary {
+    background-color: #17910F;
+}
+
+
+/* next button animation */
+
+.pa-cta-cnt button.next {
+    position: relative;
+}
+
+.pa-cta-cnt button.next i {
+    position: absolute;
+    overflow: hidden;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    left: 90%;
+    font-size: 20px;
+}
+
+.pa-cta-cnt button.next:hover i {
+    left: 68%;
+}
+
+.pa-cta-cnt button.next:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+
+/* next button animation ends */
+
+.pa-cta-cnt button.secondary {
+    background-color: #929292;
+}
+
+@keyframes changeSize {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    /* 65% {transform: scale(1.2);}*/
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+/* save button animation */
+
+.formField {
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+header {
+    background-color: #fff;
+    margin-bottom: 25px;
+}
+
+header .sub-header {
+    border-top: solid 3px #85c525;
+    background-color: #17910F;
+    color: #fff;
+    box-shadow: 0px 2px 4px #888888;
+    padding: 20px 0;
+}
+
+header .sub-header .subnavlinks a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header .sub-header .subnavlinks a:first-child {
+    margin-left: 0px;
+}
+
+header .sub-header h1 {
+    text-indent: 10px;
+    font-size: 18px;
+    margin: 0px;
+}
+
+header .sub-header .arrow {
+    font-size: 150%;
+    line-height: 0px;
+}
+
+.date input {
+    box-shadow: none;
+}
+
+.totalCol {
+    font-weight: 700;
+    font-size: 14px
+}
+
+header .sub-header .profile-name span {
+    color: #fff;
+    font-size: 20px;
+}
+
+header .sub-header .pa-emp-dtl-cnt {
+    padding-left: 10px;
+    list-style-type: disc;
+    /*color: #dadada;*/
+    font-weight: normal;
+}
+
+header .sub-header .pa-emp-dtl-cnt ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+header .sub-header .pa-emp-dtl-cnt ul li+li {
+    margin-top: 1em;
+}
+
+.pa-emp-dtl-cnt .pa-emp-value {
+    color: #fff;
+}
+
+.input-box {
+    background-color: #f6f6f6;
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.dev-need-actn-tbl .input-box {
+    font-weight: normal;
+    padding-left: 5px;
+    text-align: left;
+}
+
+header .pa-logo {
+    padding: 5px;
+    padding-left: 0;
+}
+
+header .pa-logo img {
+    width: 80px;
+    float: left;
+}
+
+header .heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0 15px 130px;
+    color: #313541;
+}
+
+header .heading:before {
+    content: "";
+    background: #d2d2d2;
+    height: 44px;
+    width: 2px;
+    position: absolute;
+    margin: -14px 0 0 -25px;
+}
+
+header .pa-welcome-cnt {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    display: table;
+    color: #4d4d4d;
+    font-size: 12px;
+}
+
+@media (max-width: 991px) {
+    header .pa-welcome-cnt {
+        margin-top: 0px;
+    }
+}
+
+.sub-header .profile-image img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+
+/* header section ends */
+
+
+/* body section */
+
+.pa-body-cnt {
+    margin: 10px;
+    margin-bottom: 60px;
+}
+
+.pa-body-cnt .info-dotted {
+    background-color: #fff;
+    padding: 8px;
+    border: dashed 1px #b8b8ba;
+    line-height: 16px;
+}
+
+.pa-h1 {
+    display: inline-block;
+}
+
+.sub-header .action-title {
+    width: auto;
+    height: 25px;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    text-transform: capitalize;
+    font-size: 18px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.sub-header .af-carot {
+    fill: #fff;
+    position: relative;
+}
+
+.sub-header .hr-line {
+    background: #02a397;
+}
+
+.sub-header .action-dropdown {
+    font-size: 18px;
+    color: #202020;
+    left: 4px;
+}
+
+.sub-header .action-dropdown li.rm {
+    font-weight: bold;
+}
+
+.sub-header .add-item>div {
+    width: 40px;
+}
+
+h2 {
+    color: #3c4d60;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+h2+p {
+    color: #86878b;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 6px;
+}
+
+h3 {
+    color: #3c4d60;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 6px 0px;
+}
+
+h1 span {
+    font-size: 12px;
+}
+
+h2 span:not(.date-range) {
+    font-size: 12px;
+    color: #777777;
+    font-weight: normal;
+    display: block;
+    padding-top: 5px;
+}
+
+.pa-body-cnt .pa-search input {
+    /*border: 0; */
+    border: solid 1px #efefef;
+    color: #6d7074;
+    font-size: 13px;
+    border-radius: 0;
+}
+
+.pa-body-cnt .pa-search input+button[type='submit'] {
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='30'><path fill='#85c525' d='M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z' /></svg>") no-repeat right top;
+    border: 0;
+    position: absolute;
+    top: 14px;
+    right: 17px;
+    height: 24px;
+    width: 24px;
+}
+
+.pa-body-cnt .pa-action {
+    padding: 13px 8px 12px;
+}
+
+.pa-active {
+    color: #149bfe;
+}
+
+.pa-inactive {
+    color: #c3c3c3;
+}
+
+.pa-arrow-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.employee-statement .accept {
+    padding: 10px 0;
+}
+
+.employee-statement .accept .check-box {
+    border: 2px solid #868686;
+    height: 14px;
+    width: 14px;
+}
+
+.checkmark-button-container input[type=checkbox]:disabled+label {
+    border: 2px solid #e4e4e4;
+}
+
+.employee-statement .data-row .date {
+    width: 92%;
+}
+
+.pa-tbl-cnt table {
+    background-color: #fff;
+    border-width: 1px 0 0 1px;
+    width: 100%;
+    /*font-size: 13px; */
+}
+
+.pa-tbl-cnt>table>thead>tr>th {
+    border: solid 1px #d2d2d2;
+    border-width: 0 0 1px 0;
+    padding: 10px;
+    color: #3c4d60;
+}
+
+.pa-tbl-cnt>table>tbody>tr>td {
+    border: solid 1px #d2d2d2;
+    border-width: 0 0 1px 0;
+    padding: 10px;
+    color: #3c4d60;
+    vertical-align: middle;
+    position: relative;
+}
+
+.pa-tbl-cnt .col-rating {
+    text-align: center;
+    padding: 5px;
+}
+
+.pa-tbl-cnt .col-rating ul {
+    margin: 0;
+    text-align: left;
+    padding: 0;
+    line-height: 15px;
+}
+
+
+/* table style ends here */
+
+@-webkit-keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-10px, 0, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(10px, 0, 0)
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+        transform: translate3d(-5px, 0, 0)
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(5px, 0, 0);
+        transform: translate3d(5px, 0, 0)
+    }
+}
+
+
+/* loader css */
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* action dropdown ends here */
+
+
+/* previous year objective starts here */
+
+.pre-yr-obj textarea,
+.dev-need-actn-tbl textarea {
+    border: 0px solid #f1f1f1;
+    padding: 10px;
+    height: 60px;
+    width: 100%;
+    padding-right: 50px;
+}
+
+.pre-yr-obj .pre-obj-table table tr:hover td,
+.dev-need-actn-tbl table tr:hover td {
+    /*border: solid 1px; */
+    background-color: #fafafa;
+}
+
+.position-duties .list-group-item {
+    padding-left: 30px;
+}
+
+.pre-yr-obj-padding,
+.position-duties .list-group,
+.pa-emp-description-cnt .list-group,
+.employee {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0px 1px 3px rgba(136, 136, 136, 0.5);
+}
+
+.pre-obj-table {
+    margin-top: 5px;
+}
+
+.pre-yr-obj .es-table.pa-tbl-cnt td,
+.dev-need-actn-tbl td {
+    position: relative;
+}
+
+.close-btn {
+    fill: #dedede;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    cursor: pointer;
+    display: none;
+}
+
+.pre-obj-table table tr:hover .close-btn,
+.dev-need-actn-tbl table tr:hover .close-btn,
+.training-activities .activities-content:hover .close-btn,
+.dev-need-actn-tbl .developmental-needs-actions:hover .close-btn {
+    display: block;
+}
+
+.close-btn:hover {
+    fill: #848484;
+}
+
+.developmental-needs-actions {
+    position: relative;
+}
+
+
+/* previous year objective ends here */
+
+
+/* ratings radio style starts here */
+
+.es-table .radios-wrapper {
+    position: relative;
+    width: 18px;
+    left: 50%;
+    margin-left: -9px;
+}
+
+.es-table input[type="radio"] {
+    position: absolute;
+    right: 1000%;
+    opacity: 0;
+}
+
+.es-table label {
+    float: left;
+    width: 100%;
+    border: 2px solid #888888;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 18px;
+    margin-bottom: 10px;
+}
+
+.es-table #slider {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+    background: #148c83;
+    transition: transform 1s;
+    border-radius: 50%;
+    animation-timing-function: ease-in-out;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    transition: 0.2s left .05s ease-in-out;
+}
+
+.es-table #input1:checked~#slider {
+    animation-name: input1;
+    top: 2px;
+}
+
+.es-table #input2:checked~#slider {
+    animation-name: input2;
+    top: 31px;
+}
+
+.es-table #input3:checked~#slider {
+    animation-name: input3;
+    top: 59px;
+}
+
+.es-table #input4:checked~#slider {
+    animation-name: input4;
+    top: 87px;
+}
+
+.es-table #input5:checked~#slider {
+    animation-name: input5;
+    top: 115px;
+}
+
+@keyframes input1 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input2 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input3 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input4 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input5 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+.es-table #input6:checked~#slider {
+    animation-name: input6;
+    top: 2px;
+}
+
+.es-table #input7:checked~#slider {
+    animation-name: input7;
+    top: 31px;
+}
+
+.es-table #input8:checked~#slider {
+    animation-name: input8;
+    top: 59px;
+}
+
+.es-table #input9:checked~#slider {
+    animation-name: input9;
+    top: 87px;
+}
+
+.es-table #input10:checked~#slider {
+    animation-name: input10;
+    top: 115px;
+}
+
+@keyframes input6 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input7 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input8 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input9 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+@keyframes input10 {
+    30%,
+    70% {
+        transform: scale(0.5);
+    }
+}
+
+
+/* ratings radio style ends here */
+
+
+/* career-aspirations starts here */
+
+.pa-body-cnt .title {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+    color: #1b3148;
+    margin-bottom: 1px;
+    margin-top: 5px;
+    /*background-color: rgba(255, 255, 255, 0.4);
+  padding: 8px;
+  margin-bottom: 5px;*/
+}
+
+.dev-need-actn-tbl .title span {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.pa-tbl-cnt .sub-title {
+    background: #fff;
+    margin-bottom: 5px;
+}
+
+.pa-tbl-cnt .comments textarea,
+.pa-tbl-cnt .sub-title textarea {
+    /* height:40px;  border:0px solid #f1f1f1;*/
+    width: 100%;
+    padding: 10px;
+    display: block;
+}
+
+.pa-tbl-cnt .comments textarea {
+    height: 45px;
+}
+
+.pa-tbl-cnt .comments p {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.training-activities .title {
+    margin-top: 5px;
+}
+
+
+/* career-aspirations ends here */
+
+
+/* participating-in-training starts here */
+
+.training-activities .activities-content {
+    background: #fff;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.training-activities .activities-content:hover {
+    background: #fafafa;
+}
+
+.training-activities .activities-content textarea {
+    height: 40px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    display: block;
+}
+
+
+/* participating-in-training ends here */
+
+
+/* Employee Statement Of Objectives starts here */
+
+.employee-statement-page h2 input.form-control {
+    display: inline-block;
+    width: auto;
+}
+
+.checkmark-button-container,
+.radio-button-container {
+    margin: 0px auto 0;
+    width: 18px;
+    display: inline-block;
+}
+
+.checkmark-button-container label {
+    margin-bottom: 0;
+    top: 2px;
+}
+
+
+/* Checkmark style starts */
+
+@-moz-keyframes dothabottomcheck {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 7px;
+    }
+}
+
+@-webkit-keyframes dothabottomcheck {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 7px;
+    }
+}
+
+@keyframes dothabottomcheck {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 7px;
+    }
+}
+
+@keyframes dothatopcheck {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 12px;
+    }
+}
+
+@-webkit-keyframes dothatopcheck {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 12px;
+    }
+}
+
+@-moz-keyframes dothatopcheck {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 0;
+    }
+    100% {
+        height: 12px;
+    }
+}
+
+.checkmark-button-container input[type=checkbox] {
+    display: none;
+}
+
+.check-box {
+    height: 12px;
+    width: 12px;
+    background-color: transparent;
+    border: 1px solid #dbdbdb;
+    position: relative;
+    display: inline-block;
+    -moz-transition: border-color ease 0.2s;
+    -o-transition: border-color ease 0.2s;
+    -webkit-transition: border-color ease 0.2s;
+    transition: border-color ease 0.2s;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.check-box::before,
+.check-box::after {
+    position: absolute;
+    height: 0;
+    width: 2px;
+    background-color: #148c83;
+    display: inline-block;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    border-radius: 5px;
+    content: ' ';
+    -webkit-transition: opacity ease .5;
+    -moz-transition: opacity ease .5;
+    transition: opacity ease .5;
+}
+
+.check-box::before {
+    top: 8px;
+    left: 6px;
+    -moz-transform: rotate(-130deg);
+    -ms-transform: rotate(-130deg);
+    -o-transform: rotate(-130deg);
+    -webkit-transform: rotate(-130deg);
+    transform: rotate(-130deg);
+}
+
+.check-box::after {
+    top: 3px;
+    left: 1px;
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+}
+
+.checkmark-button-container input[type=checkbox]:checked+.check-box,
+.check-box.checked {
+    border-color: #148c83;
+}
+
+.checkmark-button-container input[type=checkbox]:checked+.check-box::after,
+.check-box.checked::after,
+.over-all-ratings .active-selection .checkmark-button-container label::after {
+    height: 50px;
+    -moz-animation: dothabottomcheck 0.2s ease 0s forwards;
+    -o-animation: dothabottomcheck 0.2s ease 0s forwards;
+    -webkit-animation: dothabottomcheck 0.2s ease 0s forwards;
+    animation: dothabottomcheck 0.2s ease 0s forwards;
+}
+
+.checkmark-button-container input[type=checkbox]:checked+.check-box::before,
+.check-box.checked::before,
+.active-selection .checkmark-button-container input[type=checkbox]::before,
+.over-all-ratings .active-selection .checkmark-button-container label::before {
+    height: 120px;
+    -moz-animation: dothatopcheck 0.4s ease 0s forwards;
+    -o-animation: dothatopcheck 0.4s ease 0s forwards;
+    -webkit-animation: dothatopcheck 0.4s ease 0s forwards;
+    animation: dothatopcheck 0.4s ease 0s forwards;
+}
+
+
+/* check-box css ends*/
+
+
+/*Radio buttons classes*/
+
+.data-row-container .data-row:first-child .close-btn {
+    display: none;
+}
+
+.es-table .radio-button-container {
+    margin-top: 5px;
+}
+
+.es-table tr td:first-child {
+    vertical-align: top;
+}
+
+.es-table .radio-button-container label {
+    height: 18px;
+    width: 18px;
+    margin-bottom: 0;
+}
+
+.es-table li div.radio-button-container label {
+    top: 3px;
+}
+
+.radio-button-container .check-box::before {
+    top: 12px;
+    left: 5px;
+}
+
+.radio-button-container .check-box::after {
+    top: 6px;
+    left: 0px;
+}
+
+.position-duties .es-table .radio-button-container {
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+input[type=radio]:checked+.check-box,
+.check-box.checked {
+    border-color: #148c83;
+}
+
+input[type=radio]:checked+.check-box::after,
+.check-box.checked::after {
+    height: 50px;
+    -moz-animation: dothabottomcheck 0.2s ease 0s forwards;
+    -o-animation: dothabottomcheck 0.2s ease 0s forwards;
+    -webkit-animation: dothabottomcheck 0.2s ease 0s forwards;
+    animation: dothabottomcheck 0.2s ease 0s forwards;
+}
+
+input[type=radio]:checked+.check-box::before,
+.check-box.checked::before {
+    height: 120px;
+    -moz-animation: dothatopcheck 0.4s ease 0s forwards;
+    -o-animation: dothatopcheck 0.4s ease 0s forwards;
+    -webkit-animation: dothatopcheck 0.4s ease 0s forwards;
+    animation: dothatopcheck 0.4s ease 0s forwards;
+}
+
+
+/*Radio buttons classes ends*/
+
+
+/* over all page css starts here */
+
+.over-all-ratings .list-group-item {
+    float: left;
+}
+
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border-radius: 0;
+}
+
+
+/* Page css ends here */
+
+
+/*Tracker CSS*/
+
+.tracker-container {
+    top: 10px;
+    padding: 10px 30px 10px 10%;
+    width: 100%;
+    display: flex;
+    -ms-display: flex-box;
+    background: #fff;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 3px rgba(136, 136, 136, 0.5);
+}
+
+.tracker-status {
+    display: inline-block;
+    flex: 1;
+    position: relative;
+    padding-left: 2px;
+    padding-right: 7px;
+}
+
+.tracker-circle,
+.tracker-circle-deactive {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.tracker-circle {
+    background: #fd9827;
+}
+
+.tracker-circle-deactive {
+    background: #ccc;
+}
+
+.tracker-line {
+    height: 3px;
+    width: 100%;
+    position: relative;
+    top: -11px;
+    left: 22px;
+    padding-right: 15px;
+}
+
+.tracker-line hr {
+    background: #ccc;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.tracker-content {
+    position: relative;
+    left: -40px;
+    width: 100px;
+    text-align: center;
+}
+
+.tracker-number {
+    position: relative;
+    font-size: 12px;
+    color: #fff;
+    left: 5px;
+    top: 2px;
+    font-weight: bold;
+}
+
+.tracker-completed .material-icons {
+    font-size: 16px;
+    color: #fff;
+    left: 2px;
+    top: 2px;
+    font-weight: bold;
+    position: relative;
+}
+
+
+/*Tracker CSS Ends*/
+
+
+/* overall css starts from here */
+
+@media (min-width: 768px) {
+    .over-all-ratings.list-group li {
+        width: 48%;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .over-all-ratings.list-group li {
+        width: 24%;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .over-all-ratings.list-group li {
+        width: 24%;
+    }
+}
+
+.over-all-ratings .list-group-item {
+    float: left;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.es-table .radio-button-container {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -2px;
+}
+
+.es-table .col-rating .radio-button-container {
+    position: absolute;
+    margin-left: -6px;
+    margin-top: -8px;
+}
+
+.active-selection {
+    background: #02a397;
+    color: #fff;
+    -webkit-transition: background 0.5s;
+    ;
+    transition: background 0.5s;
+}
+
+.pa-table-opr {
+    margin-top: 10px;
+}
+
+.over-all-cnt .list-group {
+    margin-bottom: 0
+}
+
+.pa-discussed-content {
+    background: #fff;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.pa-discussed-content p {
+    margin-bottom: 0px;
+}
+
+.underline {
+    border-bottom: 1px dotted #202020;
+    font-weight: bold;
+}
+
+.over-all-ratings .active-selection .checkmark-button-container label::before {
+    top: 10px;
+}
+
+.over-all-ratings .active-selection .checkmark-button-container label::after {
+    top: 5px;
+}
+
+.over-all-ratings .checkmark-button-container label.check-box {
+    top: 3px;
+    left: -10px;
+}
+
+
+/* overall css ends from here */
+
+
+/* Model css */
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    background-color: #ebebeb;
+    padding-bottom: 0;
+}
+
+.modal-body textarea {
+    width: 100%;
+}
+
+.modal-body,
+.modal-footer {
+    background-color: #eff4fa;
+}
+
+.modal-header .close {
+    top: -15px;
+    background: #fff;
+    z-index: 1111;
+    position: absolute;
+    opacity: 1;
+    border-radius: 25px;
+    width: 35px;
+    right: -15px;
+    height: 35px;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal .pa-body-cnt {
+    margin-top: 10px;
+}
+
+.modal-footer {
+    margin-top: 0px;
+    padding: 0 15px 15px;
+}
+
+.modal-body,
+.modal-footer {
+    background-color: #ebebeb;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.model-table-content {
+    background-color: #eff4fa;
+}
+
+.modal .pa-body-cnt .pa-search {
+    background: none;
+}
+
+
+/* Model css ends */
+
+
+/* Add Manager css ends
+/* modal classes ends here */
+
+
+/* body section ends */
+
+
+/* footer section */
+
+
+/* error and succes message div starts here */
+
+.message {
+    display: none;
+}
+
+.message div {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+}
+
+.message div span {
+    display: inline;
+    white-space: nowrap;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 3px 15px #888;
+    border-radius: 5px;
+    position: relative;
+    top: 10px;
+    font-weight: bold;
+}
+
+.message.success div span {
+    color: green;
+}
+
+.message.error div span {
+    color: red;
+}
+
+
+/* error and succes message div ennds here */
+
+footer {
+    background-color: #8a8a8a;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#page-container {
+    position: relative;
+    min-height: 80vh;
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+
+#toast_message {
+    text-align: center;
+    background-color: #F5CD4E;
+    padding: 8px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 20%;
+    right: 20%;
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+    background-color: #5CB85C;
+}
+
+a {
+    color: #117A7E;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+.btn-custom-close {
+    background-color: red; /* Set the background color to red */
+    color: white; /* Set the text color to white */
+    border: none; /* Remove the border */
+}
+
+.btn-custom-close:hover {
+    background-color: darkred; /* Change the background color on hover */
+}
