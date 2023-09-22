@@ -20,3 +20,7 @@ The manager or Admin got more than one screen they can see all employees leave r
 NB : Admin Creditials
     User-name : moses@gmail.com
     passcode : 1
+
+
+
+Please note I used different functionality for some tables, The admin part on the user if you want to edit the user it is an onclick on row functionality and on the leave part there is a pen icon for edit. 
