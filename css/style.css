@@ -1,11 +1,6 @@
-/* vexall Performance Appraisal application */
-
 html {
     background-image: url('../images/bg.jpg');
 }
-
-
-/* HTML5 display-role reset for older browsers */
 
 article,
 aside,
@@ -23,7 +18,6 @@ section {
 
 html body {
     line-height: 16px;
-    /* background-color: #e5f4fe; */
     color: #202020;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
@@ -70,10 +64,6 @@ input:focus,
 input:active:focus {
     outline-width: 2px;
 }
-
-
-/* button classes starts here */
-
 .pa-cta-cnt {
     margin-top: 10px;
 }
@@ -93,10 +83,6 @@ input:active:focus {
 .pa-cta-cnt button.primary {
     background-color: #17910F;
 }
-
-
-/* next button animation */
-
 .pa-cta-cnt button.next {
     position: relative;
 }
@@ -124,9 +110,6 @@ input:active:focus {
     transition: all 0.2s;
 }
 
-
-/* next button animation ends */
-
 .pa-cta-cnt button.secondary {
     background-color: #929292;
 }
@@ -136,15 +119,11 @@ input:active:focus {
         transform: scale(1);
         opacity: 1;
     }
-    /* 65% {transform: scale(1.2);}*/
     100% {
         transform: scale(2);
         opacity: 0;
     }
 }
-
-
-/* save button animation */
 
 .formField {
     display: inline-block;
@@ -1026,12 +1005,6 @@ h2 span:not(.date-range) {
     animation: dothatopcheck 0.4s ease 0s forwards;
 }
 
-
-/* check-box css ends*/
-
-
-/*Radio buttons classes*/
-
 .data-row-container .data-row:first-child .close-btn {
     display: none;
 }
@@ -1097,12 +1070,6 @@ input[type=radio]:checked+.check-box::before,
     animation: dothatopcheck 0.4s ease 0s forwards;
 }
 
-
-/*Radio buttons classes ends*/
-
-
-/* over all page css starts here */
-
 .over-all-ratings .list-group-item {
     float: left;
 }
@@ -1111,12 +1078,6 @@ input[type=radio]:checked+.check-box::before,
 .list-group-item:last-child {
     border-radius: 0;
 }
-
-
-/* Page css ends here */
-
-
-/*Tracker CSS*/
 
 .tracker-container {
     top: 10px;
@@ -1199,12 +1160,6 @@ input[type=radio]:checked+.check-box::before,
     font-weight: bold;
     position: relative;
 }
-
-
-/*Tracker CSS Ends*/
-
-
-/* overall css starts from here */
 
 @media (min-width: 768px) {
     .over-all-ratings.list-group li {
@@ -1291,12 +1246,6 @@ input[type=radio]:checked+.check-box::before,
     left: -10px;
 }
 
-
-/* overall css ends from here */
-
-
-/* Model css */
-
 .modal-content {
     border-radius: 0;
 }
@@ -1373,22 +1322,6 @@ input[type=radio]:checked+.check-box::before,
     background: none;
 }
 
-
-/* Model css ends */
-
-
-/* Add Manager css ends
-/* modal classes ends here */
-
-
-/* body section ends */
-
-
-/* footer section */
-
-
-/* error and succes message div starts here */
-
 .message {
     display: none;
 }
@@ -1421,15 +1354,11 @@ input[type=radio]:checked+.check-box::before,
     color: red;
 }
 
-
-/* error and succes message div ennds here */
-
 footer {
     background-color: #8a8a8a;
     color: #fff;
     padding: 10px 0;
     text-align: center;
-    /* position: fixed; */
     bottom: 0;
     width: 100%;
 }
@@ -1459,7 +1388,6 @@ footer {
 
 #content-wrap {
     padding-bottom: 2.5rem;
-    /* Footer height */
 }
 
 #toast_message {
