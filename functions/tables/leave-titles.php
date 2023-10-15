@@ -1,5 +1,6 @@
 <?php
 
+    //Session Data
     include("../connection.php");
     include('../session_data.php');
     set_time_limit(0);
@@ -22,10 +23,10 @@
 
     foreach ($rows AS $row) {
         $data['data'][$r]['rowID'] = $r;
-        $data['data'][$r]['year'] = $row['year'];
-        $data['data'][$r]['total'] = $row['total'];
-        $data['data'][$r]['status'] = $row['leave_name'];
-
+        $data['data'][$r]['rec'] = $row['id'];
+        $data['data'][$r]['name'] = $row['name'];
+        $data['data'][$r]['status'] = $row['status'];
+        $data['data'][$r]['updated'] = $row['updated'];
         ++$r;
     };
 
@@ -36,25 +37,28 @@
     if($recordsTotal == 0){
         $data['data'] = [];
     };
-
+    // $data['draw'] = $dataDraw;
     $data['recordsFiltered'] = $recordsTotal;
     $data['recordsTotal'] = $recordsTotal;
-
+    // $data['selectedGrid'] = $selectedGrid;
     die(json_encode($data));
 
     function get_records($dataSearch, $columnName, $orderDirection, $dataLength, $dataStart,$conn, $limit = false){
-        $appraisal_totals_resultset = "SELECT COUNT(A.id) AS total, A.year, A.leave_type_id, B.name AS leave_name, B.id
-                                        FROM leave_management_systems.leave A, leave_management_systems.leave_type B
-                                        WHERE A.leave_type_id = B.id "; 
-                        
+
+        $job_title_resultset = "SELECT * FROM leave_status ";
+
         if($dataSearch != ''){
-            $appraisal_totals_resultset .= "AND year LIKE '%".$dataSearch."%' ";
-            $appraisal_totals_resultset .= "OR name LIKE '%".$dataSearch."%' ";
+            $job_title_resultset .= "WHERE name LIKE '%".$dataSearch."%' ";;
         };
         
-        $appraisal_totals_resultset .= "Group by year, leave_name ";
+        if(!$limit){
+            $job_title_resultset .= "ORDER BY ".$columnName." ".$orderDirection."
+            LIMIT ".$dataLength." OFFSET ".$dataStart;
+        }    
+        
+        $job_title_stmt_resultset = mysqli_query($conn, $job_title_resultset);
+        return $rows = mysqli_fetch_all($job_title_stmt_resultset, MYSQLI_ASSOC);
 
-        $appraisal_stmt_resultset = mysqli_query($conn, $appraisal_totals_resultset);
-        return $rows = mysqli_fetch_all($appraisal_stmt_resultset, MYSQLI_ASSOC);
     }
+
 ?>

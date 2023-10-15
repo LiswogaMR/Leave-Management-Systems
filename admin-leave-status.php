@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leave Management Systems - User Page</title>
+	<title>Leave Status</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 	<script src="vendor/js/jquery.min.js"></script>
@@ -35,32 +35,29 @@
     <?php include('admin-header.php'); ?>
 	<!-- header ends here -->
 	<!-- page content starts here -->
-	<section id="page-container">
+	<section  id="page-container">
+		
 		<div id="content-wrap">
 			<div class="row">
-				<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">Add User</button>
+				<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">Add Leave Status</button>
 			</div>
 			<br/>
 			<div class="employee">
 				<div class="row">
 					<div class="pa-tbl-cnt col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<table id="users" class="display" style="width:100%">
+						<table id="jobTitles" class="display" style="width:100%">
 							<thead>
 								<tr>
 									<th>Name</th>
-									<th>Email</th>
-									<th>Group</th>
+									<th>Updated</th>
 									<th>Status</th>
-									<th>created/Updated</th>
 								</tr>
 							</thead>
 							<tfoot>
 								<tr>
 									<th>Name</th>
-									<th>Email</th>
-									<th>Group</th>
+									<th>Updated</th>
 									<th>Status</th>
-									<th>created/Updated</th>
 								</tr>
 							</tfoot>
 						</table>
@@ -78,77 +75,65 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form action="functions/functions.php" method="POST" id="formUser">
+						<form action="functions/functions.php" method="POST" id="formJobTitle">
 							<div class="form-group">
 								<label for="name" class="col-form-label">Name:</label>
-								<input type="text" class="form-control" id="name" name="name">
-							</div>
-							<div class="form-group">
-								<label for="surname" class="col-form-label">Surname:</label>
-								<input type="text" class="form-control" id="surname" name="surname" data-src="surname">
-							</div>
-							<div class="form-group">
-								<label for="password" class="col-form-label">Password:</label>
-								<input type="text" class="form-control" id="password" name="password" data-src="password">
-							</div>
-							<div class="form-group">
-								<label for="email" class="col-form-label">E-mail:</label>
-								<input type="text" class="form-control" id="email" name="email" data-src="email">
-							</div>
-							<div class="form-group">
-								<label for="permission_group_id" class="col-form-label">Group:</label>
-								<select data-rule-required="true" id="permission_group_id" class='form-control' name="permission_group_id" data-src="permission_group_id">
-									<option value="" selected>Please select...</option>
-								</select>
+								<input type="text" class="form-control" id="name" name="name" data-src="name">
 							</div>
 							<div class="form-group">
 								<label for="status" class="col-form-label">Status:</label>
 								<input type="text" class="form-control" id="status" name="status" data-src="status" value="Active" readonly>
 							</div>
-							<input type="hidden" name="actionType" value="addUser">
+							<input type="hidden" name="actionType" value="addJobTitle">
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" id="submitUser">Accept</button>
-						<button type="button" class="btn btn-danger" id="deleteUser">Delete</button>
+						<button type="button" class="btn btn-primary" id="submitJobTitle">Accept</button>
+						<button type="button" class="btn btn-danger" id="deleteJobTitle">Delete</button>
 					</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	<!-- page content ends here -->
+		</div>	
+		<!-- page content ends here -->
 	</section>
 	<!-- footer starts here -->
 	<?php include('footer.php') ?>
-	<!-- footer ends here -->	
+	<!-- footer ends here -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			// var full.order_notes = 'true';
-			var userTable = $('#users').DataTable( {
+			var jobTitlesTable = $('#jobTitles').DataTable( {
 				"serverSide": true,
 				//"processing": true,
 				"pagingType": "full_numbers",
 				// "lengthMenu":[[25,50,100],[25,50,100]],
 				"order": [[ 1, "desc" ]],
 				"ajax": {
-					"url": 'functions/tables/users.php',
+					"url": 'functions/tables/leave-titles.php',
 					"type": "POST",
+					/*"data": function(data){
+						console.log(JSON.stringify(data));
+					},*/
+					/*"success": function(res){
+						console.log(JSON.stringify(res));
+					},*/
 				},
 				"initComplete": function (settings, json) {
 					$('tr.tableLoader').fadeOut('slow');
 					$('tr.triggerActions').fadeIn('slow');
 				},
-					"dom": 'RfBrtlip',//Bfrtip
-					"buttons": ['excel'],
-
+				"dom": 'lfrBtip',
+				"buttons": [
+					{ extend: 'excel', text: 'Excel', className: 'btn btn-satgreen' },
+				
+				],
 				"columns":[
 					{ "data": "name", "name": "name", "searchable": true},
-					{ "data": "email", "name": "email", "searchable": false},
-					{ "data": "permission_group_name", "name": "permission_group", "searchable": false},
+					{ "data": "updated", "name": "updated", "searchable": false},
 					{ "data": "status", "name": "status", "searchable": false},
-					{ "data": "created", "name": "created", "searchable": false},
 					// {render: function( data, type, full ){if(full.order_notes != null){return full.order_notes+' <button style="cursor:pointer;" class="btn btn-satgreen editComments"><small>Edit</small></button>'}else{return '<button style="cursor:pointer;" class="btn btn-satgreen editComments"><small>Edit</small></button>'}}, "name": "order_notes", "searchable": false, "orderable": false}
+					// {render: function( data, type, full ){return '<button style="cursor:pointer;" class="btn btn-satgreen editComments"><small>Edit</small></button>'}, "name": "order_notes", "searchable": false, "orderable": false}
 				],
 				"createdRow": function( row, data){
 					$(row).attr("id", data.rowID);
@@ -161,104 +146,73 @@
 			$('.dataTables_length').addClass('pull-right');
 
 			//move buttons to container
-			$('.buttonsContainer').append(userTable.buttons().containers());
+			$('.buttonsContainer').append(jobTitlesTable.buttons().containers());
 
-			$('#users').on('click', '.triggerActions', function () {
-				const rowClicked = userTable.row($(this).closest('tr'));
+			$('#jobTitles').on('click', '.triggerActions', function () {
+				// console.log($(this).attr('id'));
+				//get clicked row invoking row() API method
+				//against DataTables object assigned to dataTable
+				const rowClicked = jobTitlesTable.row($(this).closest('tr'));
+				//open up edit form modal
 				$('#exampleModal').modal('toggle');
-				
-				$.ajax({
-					type: "POST",
-					url: 'functions/functions.php',
-					data: {
-						rec: $(this).attr('rec'),
-						actionType: 'getUser'
-					},
-					success: function(data){
-						var jsonResponse = JSON.parse(data);
-						var element;
-						$.each(jsonResponse, function(index,jsonObject){
-							$.each(jsonObject, function(key,val){
-								//prepopulate the fields
-								element = $('#formUser').find('#'+key);
-								if (element.length) {
-									element.val(val);
-								}
-							});
-						});
-					},
+				//populate edit form with row data by corresponding
+				//rowClicked property based on 'data-src' attribute
+				$.each($('#formJobTitle input'), function () {
+					$(this).val(rowClicked.data()[$(this).attr('data-src')]);
 				});
-
 				//set modal attribute rowindex to corresponding row index
-				$('#formUser').attr('rowindex', rowClicked.index());
+				$('#formJobTitle').attr('rowindex', rowClicked.index());
 
-				$('.modal-title').text('Update user');
-				$('#formUser input[name ="actionType"]').val('updateUser');
+				$('.modal-title').text('Update Leave title');
+				$('#formJobTitle input[name ="actionType"]').val('updateJobTitle');
 				//Pass the selected records value
 				var record = $("<input>").attr("type", "hidden").attr("name", "rec").val($(this).attr('rec'));
-				$('#formUser').append(record);
-
-				$('#deleteUser').show();
+				$('#formJobTitle').append(record);
+				$('#view-spec').show();
+				$('#view-spec').prop("href", "view-job-descriptions.php?id=" + $(this).attr('rec'));
+				
+				$('#deleteJobTitle').show();
 			});
 		});
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			//Calls to populate dropdown fields etc
-			$.ajax({
-				type: "POST",
-				url: 'functions/functions.php',
-				data: {
-					rec: $(this).attr('rec'),
-					actionType: 'getPermissionGroupAll'
-				},
-				success: function(data){
-					var jsonResponse = JSON.parse(data);
-					var element;
-					element = $('#formUser').find('#permission_group_id');
-					element.html('');
-					$.each(jsonResponse, function(index,jsonObject){
-						//prepopulate the foreign key fields
-						element.append('<option value="'+jsonObject.id+'">'+jsonObject.name+'</option>');
-
-					});
-				},
-				// dataType: dataType
-			});
-
 			$('#exampleModal').on('show.bs.modal', function (event) {
-				var button = $(event.relatedTarget); 
+				var button = $(event.relatedTarget); // Button that triggered the modal
+				// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+				// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 				var modal = $(this);
-				modal.find('.modal-title').text('Add new user');
+				modal.find('.modal-title').text('New Leave Title');
 				
 				//Clear modal if it has contents
-				$.each($('#formUser input'), function () {
+				$.each($('#formJobTitle input'), function () {
 					$(this).val('');
 				});
 
-				var actionType = $('#formUser input[name ="actionType"]').val('addUser');
+				var actionType = $('#formJobTitle input[name ="actionType"]').val('addJobTitle');
 				//Pass the selected records value
 				var record = $("<input>").attr("type", "hidden").attr("name", "rec").val(null);
-				$('#formUser').append(record);
+				$('#formJobTitle').append(record);
 
-				$('#deleteUser').hide();
+				$('#view-spec').hide();
+				$('#deleteJobTitle').hide();
 
 				$(function () {
-					$('body').on('click', '#submitUser', function (e) {
-						$('#formUser').submit();
+					$('body').on('click', '#submitJobTitle', function (e) {
+						$('#formJobTitle').submit();
 						$('#myModal').modal('hide');
 					});
 				});
 
 				$(function () {
-					$('body').on('click', '#deleteUser', function (e) {
+					$('body').on('click', '#deleteJobTitle', function (e) {
 						$.confirm({
 							title: 'Delete',
 							content: 'Are you sure you would like to delete this record?',
 							buttons: {
 								confirm: function () {
-									$('#formUser input[name ="actionType"]').val('deleteUser');
-									$('#formUser').submit();
+									$('#formJobTitle input[name ="actionType"]').val('deleteJobTitle');
+									$('#formJobTitle').submit();
 									$('#myModal').modal('hide');
 								},
 								cancel: function () {

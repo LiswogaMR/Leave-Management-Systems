@@ -21,6 +21,8 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="admin-users.php">Users</a></li>
+                            <li><a href="admin-leave-status.php">Leave Status</a></li>
+                            <li><a href="admin-leave-type.php">Leave Type</a></li>
                             <li><a href="admin-permission-groups.php">Permission Group</a></li>
                             <li><a href="report.php">Submissions overview</a></li>
                         </ul>
@@ -36,9 +38,11 @@
                             <li>
                                 <div style="background-color:5CB85C; colour:#FFF; margin: 10px; text-align:center;">
                                     <?php echo $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname']; ?>
+                                    <br/>
                                 </div>
                             </li>
-                           <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+                            <li><a href="changePassword.php?email=<?php echo $_SESSION['user']['email']; ?>"><span class="glyphicon glyphicon-edit"></span>&nbsp;Change password</a></li>
+                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -67,8 +71,10 @@
                             <li>
                                 <div style="background-color:5CB85C; colour:#FFF; margin: 10px; text-align:center;">
                                     <?php echo $_SESSION['user']['name'] . ' ' . $_SESSION['user']['surname']; ?>
+                                    <br/>
                                 </div>
                             </li>
+                            <li><a href="changePassword.php?email=<?php echo $_SESSION['user']['email']; ?>"><span class="glyphicon glyphicon-edit"></span>&nbsp;Change password</a></li>
                             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
                         </ul>
                     </li>
