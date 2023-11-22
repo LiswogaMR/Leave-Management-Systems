@@ -259,6 +259,55 @@
             die(header("Location: ../employee.php"));
                 
         break;
+           case 'applyLeave':
+            //make code to make sure you cannot manage yourself
+            $leaveType = mysqli_real_escape_string($conn, $_POST['leaveType']);
+            $comment = mysqli_real_escape_string($conn, $_POST['comment']);
+            $status = '3';
+
+            
+            //Retrieve and sanitize the input values
+            $startDate = mysqli_real_escape_string($conn, $_POST['startDate']);
+            $endDate = mysqli_real_escape_string($conn, $_POST['endDate']);
+
+            //Convert the input dates to DateTime objects for comparison
+            $startDateTime = new DateTime($startDate);
+            $endDateTime = new DateTime($endDate);
+            $today = new DateTime();
+        
+            //Check if the start date is not in the past
+            if($leaveType = '2'){
+                //sick leave can be in the past it is okay to continue
+            }elseif($startDateTime < $today->format('Y-m-d')){
+                $_SESSION['msg'] = "Error!!! Start date cannot be in the past.";
+                die(header("Location: ../employee.php"));
+            }elseif ($endDateTime < $startDateTime){
+                $_SESSION['msg'] = "Error!!! End date must be greater than the start date.";
+                die(header("Location: ../employee.php"));
+            }
+    
+            $currentYear = date('Y');
+            // Calculate the difference between the two dates
+            $startDateconvert = DateTime::createFromFormat('Y-m-d', $startDate);
+            $endDateconvert = DateTime::createFromFormat('Y-m-d', $endDate);
+            $interval = $startDateconvert->diff($endDateconvert);
+            // Get the number of days from the difference
+            $numberOfDays = $interval->days + 1;
+
+            $sql = "INSERT INTO leave_management_systems.leave (user_id, year, status_id, created, start_date, end_date,no_of_days,user_comments,leave_type_id)
+                    VALUES ('".$loggedInUser."', '".$currentYear."','".$status."',NOW(),'".$startDate."','". $endDate."','". $numberOfDays."','". $comment."','". $leaveType."')";
+       
+            if (mysqli_query($conn,$sql )) {
+                //The logic would be to send an email to the user who has been added with their creaditials
+                $_SESSION['msg'] = "Successfully Submitted your Leave Request";
+                die(header("Location: ../employee.php"));
+            }else{
+                $_SESSION['msg'] = "Error updating data, kindly try again later";
+            }
+
+            die(header("Location: ../employee.php"));
+                
+        break;
         case 'addJobTitle':
             $name = mysqli_real_escape_string($conn, $_POST['name']);
             $status = 'Active';

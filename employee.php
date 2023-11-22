@@ -1,11 +1,13 @@
 <?php
 	include('functions/session_data.php');
 	include('functions/connection.php');
+	$loggedInUser = $_SESSION['user']['id'];
+	$loggedInUserEmail = $_SESSION['user']['email'];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leave Management Systems - User Page</title>
+	<title>Leave Management Systems - Leave Number</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 	<script src="vendor/js/jquery.min.js"></script>
@@ -138,6 +140,8 @@
 				</div>
 			</div>
 
+			</div>
+
 			<!-- Example Modal 2 -->
 			<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
@@ -178,7 +182,6 @@
 								<div class="form-group">
 									<label for="Status" class="col-form-label">Update Status:</label>
 									<select data-rule-required="true" id="Status" class="form-control" name="Status" data-src="Status" required>
-									<option value="leave_status_name" selected>leave_status_name</option>
 									<?php
 									
 										$sql = "SELECT * FROM leave_status where status = 'Active' "; // Adjust the table name and column name as per your database

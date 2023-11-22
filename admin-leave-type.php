@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leave Status</title>
+	<title>Leave Type</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="vendor/css/bootstrap.min.css">
 	<script src="vendor/js/jquery.min.js"></script>

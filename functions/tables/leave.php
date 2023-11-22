@@ -37,6 +37,13 @@
                                 start_date='$row[start_date]' end_date='$row[end_date]' leave_status_name='$row[leave_status_name]' 
                                 no_of_days='$row[no_of_days]'><span class='glyphicon glyphicon-eye-open'></span></a> ";
 
+            }elseif($row['leave_status_id'] == '4'){
+                $actions = "<a class='exampleModal3' data-toggle='modal' data-target='#exampleModal3' 
+                            data-whatever='@mdo' rec='$row[id]' name='$row[name]' surname='$row[surname]' 
+                            user_comment_convert='$row[user_comment_convert]' manager_comments_convert='$row[manager_comments_convert]'
+                            start_date='$row[start_date]' end_date='$row[end_date]' leave_status_name='$row[leave_status_name]' 
+                            no_of_days='$row[no_of_days]'><span class='glyphicon glyphicon-eye-open'></span></a> ";
+
             }else{
                 $actions = "<a class='exampleModal2' data-toggle='modal' data-target='#exampleModal2' 
                                 data-whatever='@mdo' rec='$row[id]' name='$row[name]' surname='$row[surname]' 
